@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+###############################################################################
 import sys
 import random
 from collections import defaultdict
@@ -41,34 +42,40 @@ class PerceptronTagger():
 		line = corpus.readline()
 		while reading:
 			if line == '\n':
+				# sentence boundary
 				prev, prev2 = self.START
-				tokens = []
 #				print('s:',sentence)
 				for words in sentence:	
 					context = self.START + [self._normalise(w[1]) for w in sentence] + self.END
 					for i, token in enumerate(sentence):
 						tag = self.tagdict.get(token[1])
 						if not tag:
+							# if the word isn't "unambiguous", extract features
 							features = self._get_features(i, token[1], context, prev, prev2)
+							# make the prediction
 							tag = self.model.predict(features)
 						sentence[i][3] = tag
-						#tokens.append((word, tag))
 						prev2 = prev
 						prev = tag
+				# print out the tokens and their tags
 				for words in sentence:	
 					print('\t'.join(words))
 				print()
 				sentence = []	
 			elif line == '':
+				# we reached the end of the input
 				reading = False
 			elif line[0] == '#':
+				# line is a comment line
 				print(line.strip())
 				line = corpus.readline()
 				continue
 			else:
+				# normal conllu line
 				row = line.strip().split('\t')
 				sentence.append(row)
 				
+			# read the next line
 			line = corpus.readline()
 
 		return 
@@ -195,10 +202,18 @@ class PerceptronTagger():
 ###############################################################################
 
 def tagger(corpus_file, model_file):
+	''' tag some text. 
+	:param corpus_file is a file handle
+	:param model_file is a saved model file
+	'''
 	t = PerceptronTagger(model_file)
 	t.tag(corpus_file)
 
 def trainer(corpus_file, model_file):
+	''' train a model 
+	:param corpus_file is a file handle
+	:param model_file is a saved model file
+	'''
 	t = PerceptronTagger(model_file, load=False)
 	sentences = [];
 	for sent in corpus_file.read().split('\n\n'):
