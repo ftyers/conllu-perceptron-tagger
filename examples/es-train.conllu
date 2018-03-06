@@ -1,0 +1,30 @@
+1	Vino	_	VERB	_	_	_	_	_	_
+2	a	_	ADP	_	_	_	_	_	_
+3	la	_	DET	_	_	_	_	_	_
+4	playa	_	NOUN	_	_	_	_	_	_
+5	.	_	PUNCT	_	_	_	_	_	_
+
+1	Voy	_	VERB	_	_	_	_	_	_
+2	a	_	ADP	_	_	_	_	_	_
+3	la	_	DET	_	_	_	_	_	_
+4	casa	_	NOUN	_	_	_	_	_	_
+5	.	_	PUNCT	_	_	_	_	_	_
+
+1	Bebe	_	VERB	_	_	_	_	_	_
+2	vino	_	NOUN	_	_	_	_	_	_
+3	en	_	ADP	_	_	_	_	_	_
+4	casa	_	NOUN	_	_	_	_	_	_
+5	.	_	PUNCT	_	_	_	_	_	_
+
+1	La	_	DET	_	_	_	_	_	_
+2	casa	_	NOUN	_	_	_	_	_	_
+3	es	_	VERB	_	_	_	_	_	_
+4	grande	_	ADJ	_	_	_	_	_	_
+5	.	_	PUNCT	_	_	_	_	_	_
+
+1	Es	_	VERB	_	_	_	_	_	_
+2	una	_	DET	_	_	_	_	_	_
+3	ciudad	_	NOUN	_	_	_	_	_	_
+4	grande	_	ADJ	_	_	_	_	_	_
+5	.	_	PUNCT	_	_	_	_	_	_
+
